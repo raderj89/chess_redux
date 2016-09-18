@@ -10,3 +10,15 @@ export const validTarget = (move) => {
   let target = board[move[0], move[1]];
   return inBounds(move) && target.color != color;
 }
+
+export const makeMoveProcessor = (color, board, moves) => ([x, y]) => {
+  const target = board[x][y];
+
+  if(!inBounds(target)) return false;
+
+  if(target.color != color) {
+    moves.push([x, y]);
+  }
+
+  return !target.color
+};
