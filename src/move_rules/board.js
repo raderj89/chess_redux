@@ -10,7 +10,7 @@ const pawns = () => {
   return pawns;
 }
 
-const board = () => {
+export const board = () => {
   let whitePieces = backPieces.concat(pawns());
   let blackPieces = pawns().concat(backPieces);
 
@@ -24,7 +24,7 @@ const board = () => {
 
   buildRows(board, blackPieces, 'black')
 
-  console.log(board);
+  return board;
 }
 
 const buildRows = (board, pieces, color) => {
@@ -41,5 +41,3 @@ const buildRows = (board, pieces, color) => {
     board.push(newRow);
   })
 };
-
-board();
