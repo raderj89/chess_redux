@@ -11,18 +11,18 @@ const pawns = () => {
 }
 
 export const board = () => {
-  let whitePieces = backPieces.concat(pawns());
-  let blackPieces = pawns().concat(backPieces);
+  let blackPieces = backPieces.concat(pawns());
+  let whitePieces = pawns().concat(backPieces);
 
   let board = [];
 
-  buildRows(board, whitePieces, 'white')
+  buildRows(board, blackPieces, 'black')
 
   for(let i = 0; i < 4; i++) {
     board.push(Array(8).fill({ occupiedBy: null, selected: false, color: null }));
   }
 
-  buildRows(board, blackPieces, 'black')
+  buildRows(board, whitePieces, 'white')
 
   return board;
 }
